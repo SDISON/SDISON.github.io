@@ -20,9 +20,11 @@ const Menu = props => {
     React.createElement("a", { href: "#about", onClick: props.toggleMenu }, "ABOUT")),
 
 
+    React.createElement("li", null,
+    React.createElement("a", { href: "#certis", onClick: props.toggleMenu }, "CERTIFICATE")),
 
     React.createElement("li", null,
-    React.createElement("a", { href: "#projects", onClick: props.toggleMenu }, "PORTFOLIO")),
+    React.createElement("a", { href: "#projects", onClick: props.toggleMenu }, "PROJECTS")),
 
 
 
@@ -86,7 +88,7 @@ const Header = props => {
 
 
     React.createElement("div", { className: "buttons" },
-    React.createElement("a", { href: "#projects" }, "my portfolio"),
+    React.createElement("a", { href: "#projects" }, "my works"),
     React.createElement("a", { href: "https://drive.google.com/uc?export=download&id=1X3k5IQTEdJhjh99UNmK7BtxSfAsMd_L9", className: "cta" }, "Download Resume(pdf)")))));
 
 
@@ -118,7 +120,7 @@ const About = props => {
 
 
     React.createElement("p", null,
-    React.createElement("center", null, "I really enjoy solving problems. I can't stop learning new things; the more, the better. I also love cricket, a hobby."),"")),
+    React.createElement("center", null, "I really enjoy solving problems. I love to learn new things; the more, the better. I also love to play cricket."),"")),
 
 
 
@@ -141,7 +143,9 @@ const About = props => {
      React.createElement("div", { className: "desc full" },
     React.createElement("h4", { className: "subtitle" }, "High School"),
     React.createElement("p", null, 
-    React.createElement("center",null,"Sacred Heart Senior Secondary Convent School with 92.6% ."),""))
+    React.createElement("center",null,"Sacred Heart Senior Secondary Convent School with 92.6% ."),"")),
+    
+    
 
   ))));
 
@@ -153,6 +157,118 @@ const About = props => {
 
 
 };
+
+/***********************
+     Certificate Component
+    ***********************/
+
+const certi = props => {
+const tech = {
+    django: 'fab fa-django',
+    sass: 'fab fa-sass',
+    css: 'fab fa-css3-alt',
+    js: 'fab fa-js-square',
+    react: 'fab fa-react',
+    vue: 'fab fa-vuejs',
+    d3: 'far fa-chart-bar',
+    node: 'fab fa-node' };
+
+  const link = props.link || 'http://';
+  const repo = props.repo || 'http://';
+
+  return (
+    React.createElement("div", { className: "certi" },
+    React.createElement("a", { className: "certi-link", href: link, target: "_blank", rel: "noopener noreferrer" },
+    React.createElement("img", { className: "certi-image", src: props.img, alt: 'Screenshot of ' + props.title })),
+
+    React.createElement("div", { className: "certi-details" },
+    React.createElement("div", { className: "certi-tile" },
+    React.createElement("p", { className: "icons" },
+    props.tech.split(' ').map((t) =>
+    React.createElement("i", { className: tech[t], key: t }))),
+
+
+    props.title, ' '),
+
+    props.children,
+    React.createElement("div", { className: "buttons" },
+    React.createElement("a", { href: repo, target: "_blank", rel: "noopener noreferrer" }, "Check authenticity",
+    React.createElement("i", { className: "fas fa-external-link-alt" })),
+
+    ))));
+
+
+
+
+
+};
+
+
+/***********************
+     Certificates Component
+    ***********************/
+
+const certis = props => {
+  return (
+    React.createElement("section", { id: "certis" },
+    React.createElement("div", { className: "certis-container" },
+    React.createElement("div", { className: "heading" },
+    React.createElement("h3", { className: "title" }, "My Certificates"),
+    React.createElement("p", { className: "separator" }),
+    React.createElement("p", { className: "subtitle" }, "Here's a list of the certificates I've received during my graduation time @",
+    ' ',
+    React.createElement("a", { href: "http://www.jiit.ac.in/", target: "_blank", rel: "noopener noreferrer" }, "JIIT"), " in the studying period of 3 years."))),
+    
+    React.createElement("div", { className: "certis-wrapper" },
+    
+    React.createElement(certi, {
+      title: "Hadoop101",
+      img: 'https://raw.githubusercontent.com/SDISON/Portfolio/master/hadoop.png',
+      tech: "",
+      link: "",
+      repo: "https://courses.cognitiveclass.ai/certificates/d79b4b6277b34c0cba06a55513b7fc35" },
+    React.createElement("p", null, "Fundamental course for Hadoop's architecture and core components")),
+
+
+    React.createElement(certi, {
+      title: "Spark Fundamentals I",
+      img: 'https://raw.githubusercontent.com/SDISON/Portfolio/master/spark.png',
+      tech: "",
+      link: "",
+      repo: "https://courses.cognitiveclass.ai/certificates/2ff57af466a540f39a416fa0fa009a03" },
+
+    React.createElement("p", null, "Fundamentals of Apache Spark.")),
+    
+    React.createElement(certi, {
+      title: " Android App Components - Intents, Activities, and Broadcast Receivers",
+      img: 'https://raw.githubusercontent.com/SDISON/Portfolio/master/android.png',
+      tech: "",
+      link: "",
+      repo: "https://www.coursera.org/verify/5UZR92K6RVFU" },
+
+    React.createElement("p", null, "Fundamentals of Android.")),
+    
+    React.createElement(certi, {
+      title: " Neural Networks and Deep Learning",
+      img: 'https://raw.githubusercontent.com/SDISON/Portfolio/master/deep.png',
+      tech: "",
+      link: "",
+      repo: "https://www.coursera.org/verify/R25LEF68VEER" },
+
+    React.createElement("p", null, "Fundamentals of Deep Learning.")),
+    
+    React.createElement(certi, {
+      title: "Improving Deep Neural Networks:Hyperparameter tuning, Regularization and Optimization",
+      img: 'https://raw.githubusercontent.com/SDISON/Portfolio/master/deep2.png',
+      tech: "",
+      link: "",
+      repo: "https://www.coursera.org/verify/AJZWWBEM4TNG" },
+
+    React.createElement("p", null, "How to improve the learning models.")),
+    
+    )));
+    };
+
 
 
 /***********************
@@ -193,15 +309,15 @@ const Project = props => {
     React.createElement("a", { href: repo, target: "_blank", rel: "noopener noreferrer" }, "View source ",
     React.createElement("i", { className: "fas fa-external-link-alt" })),
 
-    React.createElement("a", { href: link, target: "_blank", rel: "noopener noreferrer" }, "Try it Live ",
-    React.createElement("i", { className: "fas fa-external-link-alt" }))))));
+    //React.createElement("a", { href: link, target: "_blank", rel: "noopener noreferrer" }, "Try it Live ",
+    //React.createElement("i", { className: "fas fa-external-link-alt" }))
+    ))));
 
 
 
 
 
 };
-
 
 
 /***********************
@@ -421,6 +537,7 @@ class App extends React.Component {constructor(...args) {super(...args);_defineP
       React.createElement(Nav, { toggleMenu: this.toggleMenu, showMenu: this.state.menuState }),
       React.createElement(Header, null),
       React.createElement(About, null),
+      React.createElement(certis, null),
       React.createElement(Projects, null),
       React.createElement(Contact, null),
       React.createElement(Footer, null)));
