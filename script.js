@@ -89,7 +89,7 @@ const Header = props => {
 
     React.createElement("div", { className: "buttons" },
     React.createElement("a", { href: "#projects" }, "my works"),
-    React.createElement("a", { href: "https://drive.google.com/uc?export=download&id=1X3k5IQTEdJhjh99UNmK7BtxSfAsMd_L9", className: "cta" }, "Download Resume(pdf)")))));
+    React.createElement("a", { href: "https://drive.google.com/uc?export=download&id=1dtCSOubceN9koNqACfUxkpiqD1jb0hPg", className: "cta" }, "Download Resume(pdf)")))));
 
 
 
